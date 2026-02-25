@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  portfolio:
+    image: node:24-alpine
+    container_name: nextjs-portfolio
+    working_dir: /app
+    volumes:
+      - ./:/app
+      # On isole node_modules dans le conteneur pour éviter les conflits Windows/Linux
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    command: sh -c "npm install && npm run dev"
+    environment:
+      # Optionnel mais recommandé sur Windows avec Docker pour que le rafraîchissement au changement de code (Hot Reload) fonctionne bien
+      - WATCHPACK_POLLING=true

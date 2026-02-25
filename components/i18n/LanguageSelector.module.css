@@ -1,0 +1,68 @@
+.selector {
+    position: absolute;
+    top: 2rem;
+    right: 2rem;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(25, 25, 35, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+.selector:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.globeIcon {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.langText {
+    font-size: 0.9rem;
+    letter-spacing: 0.05em;
+    transition: opacity 0.3s ease;
+}
+
+.hoverText {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    white-space: nowrap;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--accent-teal);
+    transition: opacity 0.3s ease;
+}
+
+.selector:hover .langText,
+.selector:hover .globeIcon {
+    opacity: 0;
+}
+
+.selector:hover .hoverText {
+    opacity: 1;
+}
+
+@media (max-width: 768px) {
+    .selector {
+        top: 1rem;
+        right: 1rem;
+    }
+}
