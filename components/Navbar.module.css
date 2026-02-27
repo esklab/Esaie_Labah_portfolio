@@ -1,0 +1,103 @@
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    padding: 1.5rem 0;
+}
+
+.scrolled {
+    background: rgba(10, 15, 30, 0.8);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    padding: 1rem 0;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: 'Consolas', 'Courier New', Courier, monospace;
+    color: var(--accent-light);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+}
+
+.logo:hover {
+    transform: scale(1.02);
+}
+
+.promptArrow {
+    color: var(--accent-purple);
+    margin-right: 0.25rem;
+}
+
+.cursor {
+    display: inline-block;
+    width: 8px;
+    height: 1.25rem;
+    background-color: var(--accent-teal);
+    margin-left: 2px;
+    vertical-align: middle;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+}
+
+.links {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+}
+
+.link {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s ease;
+    padding: 0;
+}
+
+.link:hover {
+    color: var(--text-primary);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+/* Hide links on small mobile screens, keep language selector */
+@media (max-width: 768px) {
+    .links {
+        display: none;
+    }
+}

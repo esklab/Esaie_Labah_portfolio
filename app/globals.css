@@ -1,19 +1,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
 
+html {
+  scroll-behavior: smooth;
+}
+
 :root {
   --bg-primary: #0a0a0f;
   --bg-secondary: rgba(255, 255, 255, 0.03);
   --text-primary: #ffffff;
   --text-secondary: #a1a1aa;
-  
+
   --accent-blue: #3b82f6;
   --accent-purple: #8b5cf6;
   --accent-teal: #14b8a6;
-  
+
   --card-bg: rgba(25, 25, 35, 0.6);
   --card-border: rgba(255, 255, 255, 0.08);
   --card-hover-border: rgba(255, 255, 255, 0.2);
-  
+
   --gradient-primary: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
 }
 
@@ -33,7 +37,12 @@ body {
   line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Outfit', sans-serif;
   font-weight: 700;
   line-height: 1.2;
@@ -55,8 +64,15 @@ a {
 
 /* Animations */
 @keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animate-fade-in {

@@ -3,7 +3,20 @@ export type Language = 'en' | 'fr';
 export const translations = {
     en: {
         nav: {
-            switchToFormat: "FR"
+            switchToFormat: "FR",
+            experience: "Experience",
+            projects: "Projects",
+            skills: "Skills",
+            contact: "Contact"
+        },
+        contact: {
+            title: "Get in",
+            titleGradient: "Touch",
+            subtitle: "Interested in discussing a project, an architecture challenge, or a potential collaboration? Feel free to reach out.",
+            emailButton: "Send an Email",
+            whatsappButton: "Chat on WhatsApp",
+            github: "GitHub",
+            linkedin: "LinkedIn"
         },
         hero: {
             badge: "ERP Systems Engineer",
@@ -266,7 +279,20 @@ export const translations = {
 
     fr: {
         nav: {
-            switchToFormat: "EN"
+            switchToFormat: "EN",
+            experience: "Expérience",
+            projects: "Projets",
+            skills: "Compétences",
+            contact: "Contact"
+        },
+        contact: {
+            title: "Me",
+            titleGradient: "Contacter",
+            subtitle: "Vous souhaitez discuter d'un projet, d'un défi architectural ou d'une potentielle collaboration ? N'hésitez pas à me joindre.",
+            emailButton: "Envoyer un Email",
+            whatsappButton: "Discuter sur WhatsApp",
+            github: "GitHub",
+            linkedin: "LinkedIn"
         },
         hero: {
             badge: "Ingénieur Systèmes ERP",
