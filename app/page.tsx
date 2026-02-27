@@ -1,29 +1,16 @@
 'use client';
 
 import React from 'react';
-import {
-    TrendingUp, Boxes, Landmark, Users,
-    Store, GraduationCap, FlaskConical, CalendarClock, Building2
-} from 'lucide-react';
-import ModuleCard from '@/components/ModuleCard';
 import TimelineItem from '@/components/TimelineItem';
 import LanguageSelector from '@/components/i18n/LanguageSelector';
+import ExperienceCard from '@/components/ExperienceCard';
+import CaseStudyCard from '@/components/CaseStudyCard';
+import DataProjectCard from '@/components/DataProjectCard';
 import { useLanguage } from '@/components/i18n/LanguageProvider';
 import styles from './page.module.css';
 
 export default function PortfolioPage() {
     const { t } = useLanguage();
-    const domainIcons = [
-        <TrendingUp size={28} key="icon0" />,
-        <Boxes size={28} key="icon1" />,
-        <Landmark size={28} key="icon2" />,
-        <Users size={28} key="icon3" />,
-        <Store size={28} key="icon4" />,
-        <GraduationCap size={28} key="icon5" />,
-        <FlaskConical size={28} key="icon6" />,
-        <CalendarClock size={28} key="icon7" />,
-        <Building2 size={28} key="icon8" />
-    ];
 
     return (
         <main className={styles.main}>
@@ -52,24 +39,153 @@ export default function PortfolioPage() {
                 </div>
             </div>
 
-            <div className={styles.gridContainer}>
-                <div className={styles.grid}>
-                    {t.domains.map((domain, index) => (
-                        <ModuleCard
+            {/* PROFESSIONAL EXPERIENCE */}
+            <div className={styles.sectionContainer}>
+                <div className={styles.sectionHeader}>
+                    <h2 className={styles.sectionTitle}>
+                        {t.sections.professionalExperience} <span className="text-gradient">{t.sections.professionalExperienceGradient}</span>
+                    </h2>
+                    <p className={styles.sectionSubtitle}>
+                        {t.sections.professionalExperienceSubtitle}
+                    </p>
+                </div>
+
+                <div className={styles.experienceContainer}>
+                    {t.experience.map((exp, index) => (
+                        <ExperienceCard
                             key={index}
-                            title={domain.title}
-                            coreModules={domain.coreModules}
-                            icon={domainIcons[index]}
-                            understanding={domain.understanding}
-                            customization={domain.customization}
-                            integration={domain.integration}
-                            automation={domain.automation}
-                            delay={index * 100}
+                            role={exp.role}
+                            company={exp.company}
+                            period={exp.period}
+                            responsibilities={exp.responsibilities}
                         />
                     ))}
                 </div>
             </div>
 
+            {/* ODOO PROJECTS (CASE STUDIES) */}
+            <div className={styles.sectionContainer}>
+                <div className={styles.sectionHeader}>
+                    <h2 className={styles.sectionTitle}>
+                        {t.sections.odooProjects} <span className="text-gradient">{t.sections.odooProjectsGradient}</span>
+                    </h2>
+                    <p className={styles.sectionSubtitle}>
+                        {t.sections.odooProjectsSubtitle}
+                    </p>
+                </div>
+
+                <div className={styles.gridContainer}>
+                    <div className={styles.grid}>
+                        {t.odooProjects.map((project, index) => (
+                            <CaseStudyCard
+                                key={index}
+                                title={project.title}
+                                context={project.context}
+                                technicalImplementation={project.technicalImplementation}
+                                businessImpact={project.businessImpact}
+                                delay={index * 50}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* DATA & ANALYTICS PROJECTS */}
+            <div className={styles.sectionContainer}>
+                <div className={styles.sectionHeader}>
+                    <h2 className={styles.sectionTitle}>
+                        {t.sections.dataProjects} <span className="text-gradient">{t.sections.dataProjectsGradient}</span>
+                    </h2>
+                    <p className={styles.sectionSubtitle}>
+                        {t.sections.dataProjectsSubtitle}
+                    </p>
+                </div>
+
+                <h3 className={styles.subSectionTitle}>{t.sections.completedProjects}</h3>
+                <div className={styles.gridContainer}>
+                    <div className={styles.grid}>
+                        {t.dataProjects.completed.map((project, index) => (
+                            <DataProjectCard
+                                key={`comp-${index}`}
+                                title={project.title}
+                                datasetContext={project.datasetContext}
+                                toolsUsed={project.toolsUsed}
+                                analysisPerformed={project.analysisPerformed}
+                                insightsGenerated={project.insightsGenerated}
+                                businessRelevance={project.businessRelevance}
+                                delay={index * 50}
+                            />
+                        ))}
+                    </div>
+                </div>
+
+                <h3 className={styles.subSectionTitle} style={{ marginTop: '3rem' }}>{t.sections.inProgressProjects}</h3>
+                <div className={styles.gridContainer}>
+                    <div className={styles.grid}>
+                        {t.dataProjects.inProgress.map((project, index) => (
+                            <DataProjectCard
+                                key={`prog-${index}`}
+                                title={project.title}
+                                datasetContext={project.datasetContext}
+                                toolsUsed={project.toolsUsed}
+                                analysisPerformed={project.analysisPerformed}
+                                insightsGenerated={project.insightsGenerated}
+                                businessRelevance={project.businessRelevance}
+                                delay={index * 50}
+                            />
+                        ))}
+                    </div>
+                </div>
+            </div>
+
+            {/* SKILLS ARCHITECTURE */}
+            <div className={styles.sectionContainer}>
+                <div className={styles.sectionHeader}>
+                    <h2 className={styles.sectionTitle}>
+                        {t.sections.skills} <span className="text-gradient">{t.sections.skillsGradient}</span>
+                    </h2>
+                    <p className={styles.sectionSubtitle}>
+                        {t.sections.skillsSubtitle}
+                    </p>
+                </div>
+
+                <div className={styles.skillsContainer}>
+                    <div className={styles.skillCategory}>
+                        <h4>ERP Architecture</h4>
+                        <div className={styles.tags}>
+                            {t.skills.erpArchitecture.map((skill, idx) => (
+                                <span key={idx} className={styles.tag}>{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={styles.skillCategory}>
+                        <h4>Backend</h4>
+                        <div className={styles.tags}>
+                            {t.skills.backend.map((skill, idx) => (
+                                <span key={idx} className={styles.tag}>{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={styles.skillCategory}>
+                        <h4>Frontend</h4>
+                        <div className={styles.tags}>
+                            {t.skills.frontend.map((skill, idx) => (
+                                <span key={idx} className={styles.tag}>{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+                    <div className={styles.skillCategory}>
+                        <h4>Data & Analytics</h4>
+                        <div className={styles.tags}>
+                            {t.skills.dataAnalytics.map((skill, idx) => (
+                                <span key={idx} className={styles.tag}>{skill}</span>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* EDUCATION & CERTIFICATIONS */}
             <div className={styles.sectionContainer}>
                 <div className={styles.sectionHeader}>
                     <h2 className={styles.sectionTitle}>
