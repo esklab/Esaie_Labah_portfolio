@@ -33,7 +33,7 @@ export default function Navbar() {
         <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`}>
             <div className={styles.container}>
                 <div className={styles.logo} onClick={() => scrollToSection('top')}>
-                    <span className={styles.promptArrow}>&gt;_</span> labah<span className={styles.cursor}>_</span>
+                    <span className={styles.promptArrow}>&gt;_</span> LABAH<span className={styles.cursor}>_</span>
                 </div>
 
                 <div className={styles.links}>
